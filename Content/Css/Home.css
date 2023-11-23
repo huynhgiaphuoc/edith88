@@ -94,6 +94,10 @@ body {
 #nav li:hover a {
     color: #ff6a00;
 }
+.fa-water:before {
+    content: "\f773";
+    margin-left: 7px;
+}
 
 .fa-stripe-s,
 .fa-globe-europe,
@@ -620,7 +624,6 @@ body {
     margin-left: 30px;
     border-start-start-radius: 10px;
 }
-
 .search-item {
     padding-left: 30px;
     width: 300px;
@@ -629,8 +632,9 @@ body {
     margin-right: 10px;
     box-shadow: 1px 1px 15px 5px #888888;
     background-color: #fff;
-    border-start-start-radius: 10px;
-    border-start-end-radius: 10px;
+    /*border-start-start-radius: 10px;
+    border-start-end-radius: 10px;*/
+    border-radius: 10px;
 }
 
     .search-item ul {
@@ -660,7 +664,16 @@ body {
                 border-bottom: 1px solid #999;
                 text-decoration: none;
             }
-
+.start {
+    display: flex;
+    position: absolute;
+    margin-left: 12px;
+    margin-top: -16px;
+}
+.fa-star:before {
+    padding: 2px;
+    content: "\f005";
+}
 .item-tour {
     width: 910px;
     height: 250px;
@@ -712,7 +725,89 @@ body {
     display: block;
     height: 50px
 }
+.container {
+    position: relative;
+}
 
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    margin-right: 7px;
+
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
 
 
 .tc {
@@ -752,7 +847,117 @@ body {
     bottom: 75px;
     transform: translate(-50%, -50%);
 }
+.next {
+    right: 7px;
+    position: absolute;
+    margin-top: 1px;
+    
+}
+.prev{
+    margin-top: 1px;
+}
+.btn_bf{
+    display: flex;
+}
+.pro_1 {
+    text-align: center;
+    left: 20px;
+    width: 90px;
+    height: 30px;
+    box-shadow: 1px 1px 1px 1px #888888;
+    position: relative;
+    border-radius: 3px;
+    
+}
+.pro_2 {
+    border-radius: 3px;
+    text-align: center;
+    left: 20px;
+    width: 50px;
+    height: 30px;
+    box-shadow: 1px 1px 1px 1px #888888;
+    position: relative;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.sea-view {
+    display: flex;
+    text-align: center;
+    left: 20px;
+    width: 100px;
+    height: 25px;
+    position: relative;
+    background-color: lightblue;
+    color: dodgerblue;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.sea-view p {
+    margin-left: 16px;
+    margin-top: 1px;
+}
+.sea-view i{
 
+}
+.sale-off{
+    color: #fff;
+    background-color: red;
+    width: 200px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+.price{
+    font-size: 35px;
+    color: #999;
+    margin-left: 15px;
+  
+}
+.price-real {
+    font-size: 35px;
+    color: red;
+    position: absolute;
+    margin-top: -18px;
+    margin-left: 30px;
+}
+
+del{
+ color: red;
+}
+.price u {
+    color: #999;
+}
+.price p {
+    color: #999;
+}
+.red-text {
+    position: relative;
+    display: flex;
+    padding: 5px;
+}
+    .red-text p {
+        left: 10px;
+        margin-left: 10px;
+    }
+.fa-flag:before {
+    content: "\f024";
+    margin-left: 10px;
+}
+.title-price{
+    text-align: center;
+    margin-left: 150px;
+}
+.sale-off-1 {
+    margin-top: 10px;
+    color: #fff;
+    background-color: darkblue;
+    font-weight: 500;
+    width: 200px;
+}
+.title-price i {
+    text-align: right;
+    margin-left: 5px;
+}
 .title {
     text-align: center;
     padding: 30px;
@@ -770,7 +975,8 @@ body {
     text-align: center;
     margin-top: 60px;
 }
-.row{
+.row {
+    width: 320px;
     padding-left: 30px;
 }
 .col-sm-3{
@@ -845,7 +1051,9 @@ li .title1 {
     text-align: center;
     padding-bottom: 0.5rem;
 }
+.demo cursor {
 
+}
 li .title1,
 li .descr {
     filter: drop-shadow(0.125rem 0.125rem 0.075rem rgba(0, 0, 0, 0.25));
@@ -994,7 +1202,7 @@ li::before {
 }
 
 /*footer*/
-/*#footer {
+    /*#footer {
     height: 450px;
     background-color: darkblue;
     color: #fff;
