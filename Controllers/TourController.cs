@@ -13,5 +13,9 @@ namespace EdithTour.Controllers
         {
             return View();
         }
+        public ActionResult Tour_Inside()
+        {
+            return View();
+        }
     }
 }
