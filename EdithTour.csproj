@@ -51,6 +51,8 @@
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -292,6 +294,8 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -301,12 +305,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AirPlaneController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Airline.cs" />
+    <Compile Include="Models\Combo.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Customer_Level.cs" />
+    <Compile Include="Models\Data_market.cs" />
+    <Compile Include="Models\DB_Context.cs" />
+    <Compile Include="Models\EdithTourDBContext.cs" />
+    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\location.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Orderdetail.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\Ticket_Combo.cs" />
+    <Compile Include="Models\Tour.cs" />
+    <Compile Include="Models\Tour_Inside.cs" />
+    <Compile Include="Models\Tour_Outside.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +376,10 @@
     <Content Include="Views\Tour\Index.cshtml" />
     <Content Include="Views\Tour\text.cshtml" />
     <Content Include="Views\Tour\Tour_Inside.cshtml" />
+    <Content Include="Views\Tour\Tour_Outside.cshtml" />
+    <Content Include="Views\AirPlane\Index.cshtml" />
+    <Content Include="Views\AirPlane\Test.cshtml" />
+    <Content Include="Views\AirPlane\Real.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -356,7 +389,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -653,10 +653,10 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
-    box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 15px 5px #888888;
     padding: 40px 40px 0 40px;
-    border-radius: 5px;
-    background-color: #ffffff;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1012,7 +1012,7 @@ margin: 0 auto;
 
 
 .tc {
-    font-size: 30px;
+    font-size: 15px;
 }
 
 .text-item-tour {
@@ -1059,6 +1059,7 @@ margin: 0 auto;
 }
 .btn_bf{
     display: flex;
+    margin-top: -4px;
 }
 .pro_1 {
     text-align: center;
@@ -1092,7 +1093,7 @@ margin: 0 auto;
     color: dodgerblue;
     border-radius: 10px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: -2px;
 }
 .sea-view p {
     margin-left: 16px;
@@ -1109,17 +1110,17 @@ margin: 0 auto;
     margin-top: 30px;
 }
 .price{
-    font-size: 35px;
+    font-size: 25px;
     color: #999;
     margin-left: 15px;
   
 }
 .price-real {
-    font-size: 35px;
+    font-size: 30px;
     color: red;
     position: absolute;
     margin-top: -18px;
-    margin-left: 20px;
+    margin-left: 22px;
 }
 
 del{
@@ -1547,9 +1548,178 @@ swiper-container {
     margin-top: 150px;
 }
     .content-hot:hover {
+        margin-left: -23px;
         width: 95%;
-        box-shadow: 1px 1px 15px 5px #888888;
+        box-shadow: 1px 1px 15px 5px #abd9ff;
     }
+    /*xong tour*/
+    /*airplane*/
+
+.bg-air {
+    background-image: url('../Images/Home/korea.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 300px;
+}
+.edit-form {
+  
+}
+.swiper {
+   width: 950px;
+   height: 320px;
+   margin-top: 30px;
+
+}
+.swiper-wrapper{
+    
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    height: 320px;
+    width: 150px !important;
+    
+}
+    .swiper-slide swiper-slide-active{
+        width: 150px;
+    }
+    .img-air-place {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+    }
+.crolling-radius-air{
+    margin-top: 100px;
+    text-align: center;
+}
+.crolling-radius-air h2 {
+    color: black;
+    font-family: cursive;
+}
+
+/*trang test*/
+.menu {
+    width: 25%;
+    float: left;
+    padding: 15px;
+    border: 1px;
+}
+
+.main {
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 1px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.button {
+    width: 100%;
+    background-color: darkgray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+    .button.not (:disabled) {
+        cursor: pointer;
+        width: 116px;
+        height: 100px;
+    }
+
+.text-w {
+    width: 100%;
+}
+/*reAL*/
+.large-form{
+    margin-left: 10px;
+}
+.bar-search-air{
+    background-color: #0f124b;
+    height: 100px;
+
+   
+    color: #fff;
+}
+.body-air{
+    background-color: #e1dede;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.bar-infor {
+    background-color: #fff;
+    border-radius: 20px;
+    height: 1000px;
+    width: 270px;
+    box-shadow: 1px 1px 15px 5px #888888;
+    margin-left: 10px;
+    position: relative;
+    top: 10px;
+   
+}
+.select-infor{
+    display: flex;
+}
+.select-day {
+    display: flex;
+}
+.item-day {
+    border-radius: 17px;
+    width: 150px;
+    margin-left: 10px;
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 1px 1px 8px 5px #888888;
+    position: relative;
+    top: 10px;
+    left:30px;
+}
+.price-infor {
+    border-radius: 10px;
+    width: 790px;
+    background-color: #fff;
+    height: 100px;
+    box-shadow: 1px 1px 8px 5px #888888;
+    position: relative;
+    top: 40px;
+    left: 40px;
+}
+.sale-air {
+    border-radius: 10px;
+    width: 790px;
+    background-color: #9bef91;
+    height: 85px;
+    box-shadow: 0px 1px 1px 1px #888888;
+    position: relative;
+    top: 42px;
+    left: 40px;
+
+}
 /*footer*/
     /*#footer {
     height: 450px;

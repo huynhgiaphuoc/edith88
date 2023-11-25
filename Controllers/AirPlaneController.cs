@@ -6,18 +6,18 @@ using System.Web.Mvc;
 
 namespace EdithTour.Controllers
 {
-    public class TourController : Controller
+    public class AirPlaneController : Controller
     {
-        // GET: Tour
+        // GET: AirPlane
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Tour_Inside()
+        public ActionResult Test()
         {
             return View();
         }
-        public ActionResult Tour_Outside()
+        public ActionResult Real()
         {
             return View();
         }
