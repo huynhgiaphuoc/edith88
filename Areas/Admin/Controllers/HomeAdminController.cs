@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace EdithTour.Areas.Admin.Controllers
 {
-    public class LoginController : Controller
+    public class HomeAdminController : Controller
     {
-        // GET: Admin/Login
+        // GET: Admin/Home
         public ActionResult Index()
         {
             return View();

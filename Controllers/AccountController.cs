@@ -1,29 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using EdithTour.Models;
-using System.Security.Cryptography;
-using System.Text;
-
+using EdithTour.Areas.Admin;
+using System.Dynamic;
 
 namespace EdithTour.Controllers
 {
     public class AccountController : Controller
     {
-        public EdithTourDBContext db= new EdithTourDBContext();
         // GET: Account
-         public ActionResult Index()
+        public EdithTourEntities db = new EdithTourEntities();
+        // GET: Account
+        public ActionResult Index()
         {
             if (Session["ID_customer"] != null)
             {
-                return View();
+                return View("Index", "Home");
             }
-            else
+            else if (Session["ID_admin"] != null)
             {
-                return RedirectToAction("Login");
+                return View("Index", "HomeAdmin");
             }
+            return Index();
         }
         public ActionResult Login()
         {
@@ -31,21 +34,36 @@ namespace EdithTour.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string username, string password)
+        public ActionResult Login(string username, string password, Customer customer, Admin admin)
         {
             if (ModelState.IsValid)
             {
-
-
                 var f_password = GetMD5(password);
-                var data = db.Customers.Where(s => s.Username.Equals(username) && s.Password.Equals(f_password)).ToList();
-                if (data.Count() > 0)
+                var data_cus = db.Customers.Where(s => s.Username == customer.Username && s.Password == customer.Password);
+                var data_ad = db.Admins.Where(s => s.Username == customer.Username && s.Password == customer.Password);
+                if (data_cus.Count() > 0)
                 {
                     //add session
-                    Session["Name"] = data.FirstOrDefault().Name;
-                    Session["Email"] = data.FirstOrDefault().Email;
-                    Session["ID_Customer"] = data.FirstOrDefault().ID_customer;
-                    return RedirectToAction("Index");
+                    Session["Name"] = data_cus.FirstOrDefault().Name;
+                    Session["Email"] = data_cus.FirstOrDefault().Email;
+                    Session["ID_Customer"] = data_cus.FirstOrDefault().ID_customer;
+                    Session["Phone"] = data_cus.FirstOrDefault().Phone;
+                    Session["Address"] = data_cus.FirstOrDefault().Address;
+                    Session["Birthday"] = data_cus.FirstOrDefault().Birthday;
+                    Session["Avatar"] = data_cus.FirstOrDefault().Avatar;
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (data_ad.Count() > 0)
+                {
+                    //add session
+                    Session["Name"] = data_ad.FirstOrDefault().Name;
+                    Session["Email"] = data_ad.FirstOrDefault().Email;
+                    Session["ID_admin"] = data_ad.FirstOrDefault().ID_admin;
+                    Session["Phone"] = data_cus.FirstOrDefault().Phone;
+                    Session["Address"] = data_cus.FirstOrDefault().Address;
+                    Session["Birthday"] = data_cus.FirstOrDefault().Birthday;
+                    Session["Avatar"] = data_cus.FirstOrDefault().Avatar;
+                    return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
                 }
                 else
                 {
@@ -54,13 +72,12 @@ namespace EdithTour.Controllers
                 }
             }
             return View();
-        }
 
+        }
         public ActionResult Logout()
         {
             Session.Clear();//remove session
             return RedirectToAction("Login");
-
         }
         public ActionResult Register()
         {
@@ -68,22 +85,36 @@ namespace EdithTour.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(Customer customer)
+        public ActionResult Register(Customer customer, Admin admin)
         {
             if (ModelState.IsValid)
             {
                 var check = db.Customers.FirstOrDefault(s => s.Username == customer.Username);
+                var check_ad = db.Admins.FirstOrDefault(s => s.Username == customer.Username);
                 if (check == null)
                 {
-                   customer.Password = GetMD5(customer.Password);
-                   customer.Name = customer.Name;  
+                    customer.Password = GetMD5(customer.Password);
+                    customer.Name = customer.Name;
                     customer.Email = customer.Email;
                     customer.Phone = customer.Phone;
                     customer.Address = customer.Address;
-                    customer.Birthday= customer.Birthday;
+                    customer.Birthday = customer.Birthday;
                     customer.Avatar = customer.Avatar;
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Register", "Account");
 
+
+
+                }
+                else if (check_ad == null)
+                {
+                    admin.Password = GetMD5(admin.Password);
+                    admin.Name = admin.Name;
+                    admin.Email = admin.Email;
+                    admin.Phone = admin.Phone;
+                    admin.Address = admin.Address;
+                    admin.Birthday = admin.Birthday;
+                    admin.Avatar = admin.Avatar;
+                    return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
 
                 }
                 else
@@ -113,9 +144,7 @@ namespace EdithTour.Controllers
             }
             return byte2String;
         }
-
     }
-
 
 
 }
